@@ -293,6 +293,11 @@ func (v *VirtletManager) Exec(kubeapi.RuntimeService_ExecServer) error {
 	return fmt.Errorf("Not implemented")
 }
 
+func (v *VirtletManager) UpdateRuntimeConfig(ctx context.Context, in *kubeapi.UpdateRuntimeConfigRequest) (*kubeapi.UpdateRuntimeConfigResponse, error) {
+	response := &kubeapi.UpdateRuntimeConfigResponse{}
+	return response, nil
+}
+
 func (v *VirtletManager) ListImages(ctx context.Context, in *kubeapi.ListImagesRequest) (*kubeapi.ListImagesResponse, error) {
 	images, err := v.libvirtImageTool.ListImages()
 	if err != nil {
@@ -309,6 +314,9 @@ func (v *VirtletManager) ImageStatus(ctx context.Context, in *kubeapi.ImageStatu
 	if err != nil {
 		glog.Errorf("Error when getting image '%s' filepath: %#v", name, err)
 		return nil, err
+	}
+	if filepath == "" {
+		return nil, nil
 	}
 	image, err := v.libvirtImageTool.ImageStatus(filepath)
 	if err != nil {
@@ -352,6 +360,11 @@ func (v *VirtletManager) RemoveImage(ctx context.Context, in *kubeapi.RemoveImag
 	filepath, err := v.boltClient.GetImageFilepath(name)
 	if err != nil {
 		glog.Errorf("Error when getting filepath for image '%s': %#v", name, err)
+		return nil, err
+	}
+	if filepath == "" {
+		err = fmt.Errorf("Error when getting filepath for image '%s': image not found in database", name)
+		glog.Errorf(err.Error())
 		return nil, err
 	}
 	err = v.libvirtImageTool.RemoveImage(filepath)
