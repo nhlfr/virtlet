@@ -1,46 +1,73 @@
 hash: f9d8b64ab5e46d25b3ee7a894e1d5902dc2c25744dbce0299dc6ab5ecda448b8
-updated: 2016-10-10T15:44:26.637306462+02:00
+updated: 2016-10-20T11:10:21.396395745+02:00
 imports:
 - name: github.com/boltdb/bolt
-  version: dfb21201d9270c1082d5fb0f07f500311ff72f18
-- name: github.com/gogo/protobuf
-  version: e18d7aa8f8c624c915db340349aad4c49b10d173
+  version: 074dffcc83e9f421e261526d297cd93f22a34080
+- name: github.com/coreos/etcd
+  version: 6b1b13eabb6b6b6e07867c496451696c64a8117d
   subpackages:
-  - gogoproto
-  - plugin/compare
-  - plugin/defaultcheck
-  - plugin/description
-  - plugin/embedcheck
-  - plugin/enumstringer
-  - plugin/equal
-  - plugin/face
-  - plugin/gostring
-  - plugin/marshalto
-  - plugin/oneofcheck
-  - plugin/populate
-  - plugin/size
-  - plugin/stringer
-  - plugin/testgen
-  - plugin/union
-  - plugin/unmarshal
+  - client
+  - pkg/fileutil
+  - pkg/pathutil
+  - pkg/tlsutil
+  - pkg/transport
+  - pkg/types
+- name: github.com/coreos/go-systemd
+  version: 5af4316bea2ff5cff219164870b57482993eee59
+  subpackages:
+  - journal
+- name: github.com/coreos/pkg
+  version: 3ac0863d7acf3bc44daf49afef8919af12f704ef
+  subpackages:
+  - capnslog
+- name: github.com/ghodss/yaml
+  version: bea76d6a4713e18b7f5321a2b020738552def3ea
+- name: github.com/gogo/protobuf
+  version: 50d1bd39ce4e7a96b75e3e040be9caf79dbb4c61
+  subpackages:
   - proto
-  - protoc-gen-gogo/descriptor
-  - protoc-gen-gogo/generator
-  - protoc-gen-gogo/grpc
-  - protoc-gen-gogo/plugin
-  - sortkeys
-  - vanity
-  - vanity/command
 - name: github.com/golang/glog
   version: 23def4e6c14b4da8ac2ed8007337bc5eb5007998
 - name: github.com/golang/protobuf
-  version: df1d3ca07d2d07bba352d5b73c4313b4e2a6203e
+  version: 98fa357170587e470c5f27d3c3ea0947b71eb455
   subpackages:
   - proto
+- name: github.com/kelseyhightower/envconfig
+  version: 9aca109c9aec4633fced9717c4a09ecab3d33111
 - name: github.com/nu7hatch/gouuid
   version: 179d4d0c4d8d407a32af483c2354df1d2c91e6c3
+- name: github.com/projectcalico/libcalico-go
+  version: d6ce86635949b276b53b325faf791e98b9b1643a
+  subpackages:
+  - lib/api
+  - lib/api/unversioned
+  - lib/backend
+  - lib/backend/api
+  - lib/backend/compat
+  - lib/backend/etcd
+  - lib/backend/model
+  - lib/client
+  - lib/errors
+  - lib/hwm
+  - lib/net
+  - lib/numorstring
+  - lib/scope
+- name: github.com/satori/go.uuid
+  version: b061729afc07e77a8aa4fad0a2fd840958f1942a
+- name: github.com/Sirupsen/logrus
+  version: 3ec0642a7fb6488f65b06f9040adc67e3990296a
+- name: github.com/ugorji/go
+  version: faddd6128c66c4708f45fdc007f575f75e592a3c
+  subpackages:
+  - codec
+- name: github.com/vishvananda/netlink
+  version: da7420cab5e209195f5f7387fccd4c7f48758d30
+  subpackages:
+  - nl
+- name: github.com/vishvananda/netns
+  version: 8ba1072b58e0c2a240eb5f6120165c7776c3e7b8
 - name: golang.org/x/net
-  version: e90d6d0afc4c315a0d87a568ae68577cc15149a0
+  version: daba796358cd2742b75aae05761f1b898c9f6a5c
   subpackages:
   - context
   - http2
@@ -50,11 +77,11 @@ imports:
   - lex/httplex
   - trace
 - name: golang.org/x/sys
-  version: 8f0908ab3b2457e2e15403d3697c9ef5cb4b57a9
+  version: 002cbb5f952456d0c50e0d2aff17ea5eca716979
   subpackages:
   - unix
 - name: google.golang.org/grpc
-  version: 231b4cfea0e79843053a33f5fe90bd4d84b23cd3
+  version: b7f1379d3cbbbeb2ca3405852012e237aa05459e
   subpackages:
   - codes
   - credentials
@@ -64,8 +91,14 @@ imports:
   - naming
   - peer
   - transport
+- name: gopkg.in/tchap/go-patricia.v2
+  version: 666120de432aea38ab06bd5c818f04f4129882c9
+  subpackages:
+  - patricia
+- name: gopkg.in/yaml.v2
+  version: a5b47d31c556af34a302ce5d659e6fea44d90de0
 - name: k8s.io/kubernetes
-  version: 074891749bd41e3190e265aeb91cbc5d9c755a78
+  version: ed60ee407299cd98603eb7718e8cd95a514cb819
   repo: git@github.com:kubernetes/kubernetes.git
   vcs: git
   subpackages:
