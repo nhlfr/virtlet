@@ -80,3 +80,6 @@ Makefile.in
 .dirstamp
 cpplint.py
 test-driver
+
+# Calico
+calicoctl
